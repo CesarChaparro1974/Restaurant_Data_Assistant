@@ -31,3 +31,24 @@ __pycache__/
 .ipynb_checkpoints
 __pycache__/
 .DS_Store
+# Ignore everything
+*
+
+# Don't ignore these files
+!.gitignore
+!README.md
+!notebook.ipynb
+
+# Always ignore these even if they match above patterns
+.ipynb_checkpoints
+__pycache__/
+.DS_Store
+
+# Specifically ignore large files and directories
+models/
+*.gguf
+*.bin
+*.app
+*.pkl
+*.csv
+*.xlsx

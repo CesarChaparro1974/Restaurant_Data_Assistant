@@ -6,4 +6,4 @@ anaconda-navigator.ini
 **/*.lock
 **/*.pid
 cache_data/
-
+new_benedict.csv

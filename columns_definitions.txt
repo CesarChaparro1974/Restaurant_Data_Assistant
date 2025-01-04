@@ -1,0 +1,83 @@
+
+File Data Columns Specification
+
+A - Transaction Log ID (tlogId): A unique identifier for each transaction.
+Each transaction has an ID. If multiple items are ordered in the transaction, all items will share the same ID.
+B - Transaction Date (businessDate): The date the transaction occurred.
+C - Opening Time (opened): The time the order was opened.
+D - Closing Time (closed): The time the order was closed.
+For seated orders (orderType-seated), the difference between the opening and closing times indicates how long the customers stayed at the restaurant.
+E - Loyalty (loyalty): Indicates whether the customer is a loyalty program member.
+F - Owner ID (ownerId): Identifier of the employee responsible for the transaction.
+G - Owner (Owner): Name of the employee associated with the order.
+H - Is Staff (isStaff): Indicates staff orders (based on table classification as staff, boolean).
+I - General Only (allGeneral): Orders including only general, non-catalog items (e.g., refund or charge orders).
+J - Is PPA (isPPA): Orders included in the "average per diner" calculation (seated orders only, excluding staff tables, with positive sales and a "lifetime" between 10 minutes and 6 hours).
+K - Source (source): Source of the order (e.g., in-person, online, delivery services).
+L - Order Number (orderNumber): Unique order number. The numbering resets daily at midnight. The first order each day starts at number 1.
+M - Device Name (deviceName): The name of the device or terminal handling the order.
+N - Order Type (orderType): Type of order (seated, takeaway, delivery).
+O - Table Seats (tableseats): Number of diners seated at the table. If NULL, it's a delivery or takeaway.
+P - Table Number (tablenumber): The restaurant table number assigned to the order. Table numbers are based on their location in the restaurant.
+Q - VAT Percentage (vatPercent): VAT percentage applied to the order.
+R - Workflow Profile Name (workflowProfileName): Name of the workflow profile (OTC/TD/Seated).
+S - Workflow Profile Type (workflowProfileType): Type of workflow profile associated with the order.
+T - Delivery Person ID (deliveryPersonId): Identifier of the delivery person, if relevant. If the restaurant doesn't use delivery personnel, this field is irrelevant.
+U - Primary Phone Number (mainPhoneNumber): Customer's phone number. Relevant only for orders through source-external; the number is not real or reliable.
+V - Latitude (locationLat): Latitude of the order.
+W - Longitude (locationLng): Longitude of the order.
+X - Orderer Email (ordererEmail): The email address of the customer placing the order. Not reliable or relevant.
+Y - Orderer Region Name (ordererRegionName): Name of the region from where the order was placed.
+Z - External Source (externalSource): External source of the order if placed through a third-party service.
+AA - Main Table Tag (mainTableTag): Seating area in the restaurant.
+AB - Table Name (tableName): The name of the table.
+AC - Sales Business Date (salesBusinessDate): Business date associated with the sale transaction.
+AD - General ID (id): General identifier field, possibly referring to items or orders.
+AE - Item ID (itemId): Identifier of the ordered item.
+AF - Ordered Item ID (orderedItemId): Unique identifier for the ordered item.
+AG - Type (type): Type of item or transaction.
+AH - Offer ID (offerId): Identifier of the category.
+AI - Ordered Offer ID (orderedOfferId): Specific identifier of the category applied to the ordered item.
+AJ - Item Name (itemName): Name of the ordered item.
+AK - Offer Name (offerName): Name of the category to which the item belongs.
+When an item is sold as Stand Alone, it is sold at its pricing, and its name appears identically in columns AJ and AK. When sold as part of a Bundle, the item may have different pricing (e.g., beverages in a breakfast set). In this case, the item name appears in column AJ, and the main dish name appears in column AK.
+AL - Send Time (firedOn): Timestamp when the order was sent to the kitchen or processing.
+AM - Sent By (firedBy): The user or system that sent the order for processing.
+AN - Sending User Name (FiredBy_UserName): The username of the person who sent the order for processing.
+AO - Is Modifier (isModifier): Indicates if the item is a customized addition to the order.
+AP - Chair Number (chairNumber): Chair number associated with the order.
+AQ - Prepared (prepared): Status of an item sent for preparation but not canceled. The item is deducted from inventory.
+AR - Return (return): Status of a returned item. A returned item is marked as prepared and deducted from inventory.
+AS - Canceled (cancelled): Status of an item canceled before preparation. The item is not deducted from inventory.
+AT - Sold (sold): Status of an item prepared and sold, excluding returned items. The item is deducted from inventory.
+AU - Net Amount (netAmount): Net cost of the item.
+AV - Refund Amount (refundAmount): Amount refunded to the customer, if applicable.
+AW - General Amount (generalAmount): A multi-use amount field, possibly referring to total amounts.
+AX - Menu Section ID (menuSectionId): Identifier of the menu section from which the item was ordered.
+AY - VAT Amount (netAmountVat): VAT amount.
+AZ - Return Amount (returnAmount): Value of the returned item deducted from inventory.
+BA - Cancellation Amount (cancellationAmount): Value of the canceled item not deducted from inventory.
+BB - Price Reduction (priceReduction): Discount applied in the final bill for any reason.
+BC - Club Card Number (clubCardNumber): Customer's club card number.
+BD - Is Negative Value (isNegativeValue): Indicates if the sales amount is negative, i.e., a credit was issued for the order.
+BE - Modifier Sold (modifierSold): Per AQ, the number of modifiers sold.
+BF - Modifier Prepared (modifierPrepared): Per AQ, the number of modifiers prepared.
+BG - Net Amount Including VAT (netAmountIncludeVat): Total net amount including VAT.
+BH - Net Amount Excluding VAT (netAmountExcludeVat): Total net amount excluding VAT. Use this column to sum revenue from orders, noting that the amount excludes VAT.
+BI - Sales Amount Including VAT (salesAmountIncludeVat): Total sales amount including VAT.
+BJ - Sales Amount Excluding VAT (salesAmountExcludeVat): Total sales amount excluding VAT.
+BK - Sales VAT Amount (salesVatAmount): VAT amount in sales.
+BL - Gross Amount (grossAmount): Gross amount (including taxes and other charges).
+BM - Default Price (defaultPrice): Base price of the item before modifications or discounts.
+BN - Refund Amount Including VAT (refundAmountIncludeVat): Refunded amount including VAT.
+BO - Refund Amount Excluding VAT (refundAmountExcludeVat): Refunded amount excluding VAT.
+BP - Refund VAT Amount (refundVatAmount): VAT amount in refunds.
+BQ - Operator Amount (operatorAmount): 
+BR - Menu ID (menuId): Menu identifier from which the item was ordered.
+BS - Menu Name (menuName): Section of the menu from which the item was ordered.
+BT - Section ID (sectionId): Identifier of the menu section.
+BU - Section Name (sectionName): Subcategory of the item. For example, coffee would fall under the subcategory of hot drinks in the drinks category.
+BV - Section Offer ID (sectionOfferId): Promotion ID associated with the menu section.
+BW - Section Offer Name (sectionOfferName): Secondary subcategory under the subcategory BU.
+BX - Open Price (openPrice): Indicates if the item was sold at an open price (catalog items without a fixed price, such as "Open Food Item").
+BY - Final Price (price): Final price of the item.

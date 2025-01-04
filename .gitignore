@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+.vscode/
+.condarc
+anaconda-navigator.ini
+**/*.lock
+**/*.pid
+cache_data/
+

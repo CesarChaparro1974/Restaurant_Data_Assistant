@@ -7,3 +7,15 @@ anaconda-navigator.ini
 **/*.pid
 cache_data/
 new_benedict.csv
+# Ignore everything
+*
+
+# Don't ignore these files
+!.gitignore
+!README.md
+!*.ipynb
+
+# Always ignore these even if they match above patterns
+.ipynb_checkpoints
+__pycache__/
+.DS_Store

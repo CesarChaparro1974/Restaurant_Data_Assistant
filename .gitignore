@@ -52,3 +52,8 @@ models/
 *.pkl
 *.csv
 *.xlsx
+# Allow image assets
+!assets/
+!assets/bot.png
+!assets/bot.jpg
+# (add whatever extension your image has)

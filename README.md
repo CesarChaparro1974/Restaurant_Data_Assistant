@@ -1,6 +1,6 @@
 # Restaurant Data Assistant: 
 ## A Python-based chatbot that analyzes restaurant chain transaction data to provide real-time business insights. This tool processes queries about sales patterns, customer behavior, and operational metrics using a comprehensive transaction database.<br>
-
+![Restaurant Assistant Bot](assets/bot.png)
 Key Features:<br>
 • Financial Analysis: Sales, revenue, and VAT calculations
 • Time-based Analytics: Peak hours and order duration analysis
